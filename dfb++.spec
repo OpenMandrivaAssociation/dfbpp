@@ -1,8 +1,8 @@
 
 %define name	dfb++
 %define Name	DFB++
-%define version	0.9.25
-%define rel	2
+%define version	1.0.0
+%define rel	1
 
 %define major_major	%(A=%version; echo ${A%%.*})
 %define minor_major	%(A=%version; echo ${A##*.})
