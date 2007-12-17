@@ -19,7 +19,6 @@ Group:		System/Libraries
 URL:		http://directfb.org/
 Source0:	http://directfb.org/downloads/Extras/%{Name}-%{version}.tar.bz2
 BuildRequires:	directfb-devel >= %{version}
-BuildRoot:	%{_tmppath}/%{name}-root
 
 %description
 This is a C++ binding for DirectFB providing a much easier usage.
