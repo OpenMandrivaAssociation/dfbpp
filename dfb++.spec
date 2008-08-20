@@ -1,7 +1,6 @@
-
 %define name	dfb++
 %define Name	DFB++
-%define version	1.0.0
+%define version	1.2.0
 %define rel	1
 
 %define major_major	%(A=%version; echo ${A%%.*})
@@ -17,7 +16,8 @@ Release:	%mkrel %rel
 License:	GPL
 Group:		System/Libraries
 URL:		http://directfb.org/
-Source0:	http://directfb.org/downloads/Extras/%{Name}-%{version}.tar.bz2
+Source0:	http://directfb.org/downloads/Extras/%{Name}-%{version}.tar.gz
+Patch0:		DFB++-1.2.0-directfb-api.patch
 BuildRequires:	directfb-devel >= %{version}
 BuildRoot:	%{_tmppath}/%{name}-root
 
@@ -59,6 +59,7 @@ Source code is included in %{_docdir}/%{name}-%{version}/examples.
 
 %prep
 %setup -q -n %{Name}-%{version}
+%patch0 -p0
 
 %build
 %configure2_5x
