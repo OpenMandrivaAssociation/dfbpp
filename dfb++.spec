@@ -13,7 +13,7 @@ Summary:	C++ binding for DirectFB providing a much easier usage
 Name:		%name
 Version:	%version
 Release:	%mkrel %rel
-License:	GPL
+License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://directfb.org/
 Source0:	http://directfb.org/downloads/Extras/%{Name}-%{version}.tar.gz
