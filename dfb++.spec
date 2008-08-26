@@ -1,13 +1,13 @@
 %define name	dfb++
 %define Name	DFB++
 %define version	1.2.0
-%define rel	1
+%define rel	2
 
 %define major_major	%(A=%version; echo ${A%%.*})
 %define minor_major	%(A=%version; echo ${A##*.})
 %define lib_major	%{major_major}_%{minor_major}
-%define libname		%mklibname %name %lib_major
-%define libnamedevel	%mklibname %name %lib_major -d
+%define libname		%mklibname %{name} %{lib_major}
+%define libnamedevel	%mklibname %{name} %{major_major} -d
 
 Summary:	C++ binding for DirectFB providing a much easier usage
 Name:		%name
@@ -43,6 +43,7 @@ Provides:	lib%{name}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}%(echo %lib_major | cut -f 1 -d _)-devel = %{version}-%{release}
 Requires:	pkgconfig
+Obsoletes:	%{libname}-devel
 
 %description -n %{libnamedevel}
 This package contains the headers that programmers will need to develop
