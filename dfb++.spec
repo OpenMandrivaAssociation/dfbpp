@@ -1,7 +1,7 @@
 %define name	dfb++
 %define Name	DFB++
 %define version	1.2.0
-%define rel	2
+%define rel	3
 
 %define major_major	%(A=%version; echo ${A%%.*})
 %define minor_major	%(A=%version; echo ${A##*.})
@@ -44,6 +44,7 @@ Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}%(echo %lib_major | cut -f 1 -d _)-devel = %{version}-%{release}
 Requires:	pkgconfig
 Obsoletes:	%{libname}-devel
+Obsoletes:	%{mklibname -d dfb++ 1.0 0}
 
 %description -n %{libnamedevel}
 This package contains the headers that programmers will need to develop
@@ -105,5 +106,3 @@ rm -rf %{buildroot}
 %doc COPYING examples
 %{_bindir}/dfbshow
 %{_bindir}/dfbswitch
-
-
