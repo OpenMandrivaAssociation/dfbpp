@@ -1,13 +1,12 @@
 %define name	dfb++
 %define Name	DFB++
 %define version	1.2.0
-%define rel	3
+%define rel	4
 
-%define major_major	%(A=%version; echo ${A%%.*})
-%define minor_major	%(A=%version; echo ${A##*.})
-%define lib_major	%{major_major}_%{minor_major}
-%define libname		%mklibname %{name} %{lib_major}
-%define libnamedevel	%mklibname %{name} %{major_major} -d
+%define api		%(A=%version; echo ${A%%.*})
+%define major		%(A=%version; echo ${A##*.})
+%define libname		%mklibname %{name} %{api} %{major}
+%define libnamedevel	%mklibname %{name} -d
 
 Summary:	C++ binding for DirectFB providing a much easier usage
 Name:		%name
@@ -41,10 +40,11 @@ Group:		Development/C++
 Requires:	%{libname} = %{version}
 Provides:	lib%{name}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
-Provides:	lib%{name}%(echo %lib_major | cut -f 1 -d _)-devel = %{version}-%{release}
+Provides:	lib%{name}%{api}-devel = %{version}-%{release}
 Requires:	pkgconfig
 Obsoletes:	%{libname}-devel
 Obsoletes:	%{mklibname -d dfb++ 1.0 0}
+Obsoletes:	%{mklibname -d dfb++ 1.2}
 
 %description -n %{libnamedevel}
 This package contains the headers that programmers will need to develop
@@ -89,7 +89,7 @@ rm -rf %{buildroot}
 %files -n %{libname}
 %defattr(-,root,root)
 %doc COPYING README AUTHORS ChangeLog
-%{_libdir}/libdfb++-%{major_major}.so.%{minor_major}*
+%{_libdir}/libdfb++-%{api}.so.%{major}*
 
 %files -n %{libnamedevel}
 %defattr(-,root,root)
