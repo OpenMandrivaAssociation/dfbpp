@@ -1,7 +1,7 @@
 %define name	dfb++
 %define Name	DFB++
 %define version	1.2.0
-%define rel	4
+%define rel	5
 
 %define api		%(A=%version; echo ${A%%.*})
 %define major		%(A=%version; echo ${A##*.})
