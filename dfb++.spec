@@ -8,7 +8,7 @@
 Summary:	C++ binding for DirectFB providing a much easier usage
 Name:		dfb++
 Version:	1.2.0
-Release:	9
+Release:	10
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://directfb.org/
