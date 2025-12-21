@@ -14,6 +14,11 @@ Group:		System/Libraries
 URL:		https://directfb.org/
 Source0:	http://directfb.org/downloads/Extras/%{Name}-%{version}.tar.gz
 Patch0:		DFB++-1.2.0-directfb-api.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	directfb-devel >= %{version}
 
 %description
